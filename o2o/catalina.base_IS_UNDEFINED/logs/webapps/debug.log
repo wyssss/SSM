@@ -1,0 +1,119 @@
+2018-11-02 02:40:07.182[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductById -==>  Preparing: SELECT p.product_id, p.product_name, p.product_desc, p.img_addr, p.normal_price, p.promotion_price, p.priority, p.create_time, p.last_edit_time, p.enable_status, p.product_category_id, p.shop_id, pm.product_img_id, pm.img_addr, pm.img_desc, pm.priority, pm.create_time FROM tb_product p LEFT JOIN tb_product_img pm ON p.product_id = pm.product_id WHERE p.product_id = ? ORDER BY pm.priority DESC 
+2018-11-02 02:40:07.253[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductById -==> Parameters: 5(Long)
+2018-11-02 02:40:07.280[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductById -<==      Total: 2
+2018-11-02 02:40:07.976[main]DEBUG c.wyslkl.o2o.dao.ProductImgDao.queryProductImgList -==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2018-11-02 02:40:07.977[main]DEBUG c.wyslkl.o2o.dao.ProductImgDao.queryProductImgList -==> Parameters: 5(Long)
+2018-11-02 02:40:07.980[main]DEBUG c.wyslkl.o2o.dao.ProductImgDao.queryProductImgList -<==      Total: 2
+2018-11-02 02:40:07.985[main]DEBUG c.w.o.d.ProductImgDao.deleteProductImgByProductId -==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2018-11-02 02:40:07.986[main]DEBUG c.w.o.d.ProductImgDao.deleteProductImgByProductId -==> Parameters: 5(Long)
+2018-11-02 02:40:07.987[main]DEBUG c.w.o.d.ProductImgDao.deleteProductImgByProductId -<==    Updates: 2
+2018-11-02 02:40:08.257[main]DEBUG c.w.o2o.dao.ProductImgDao.batchInsertProductImg -==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2018-11-02 02:40:08.259[main]DEBUG c.w.o2o.dao.ProductImgDao.batchInsertProductImg -==> Parameters: upload\images\item\shop\64\2018110202400793205.jpg(String), null, null, 2018-11-02 02:40:08.12(Timestamp), 5(Long), upload\images\item\shop\64\2018110202400869730.jpg(String), null, null, 2018-11-02 02:40:08.228(Timestamp), 5(Long)
+2018-11-02 02:40:08.323[main]DEBUG c.w.o2o.dao.ProductImgDao.batchInsertProductImg -<==    Updates: 2
+2018-11-02 02:40:08.323[main]DEBUG c.w.o.d.P.batchInsertProductImg!selectKey -==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-11-02 02:40:08.323[main]DEBUG c.w.o.d.P.batchInsertProductImg!selectKey -==> Parameters: 
+2018-11-02 02:40:08.324[main]DEBUG c.w.o.d.P.batchInsertProductImg!selectKey -<==      Total: 1
+2018-11-02 02:40:08.361[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.updateProduct -==>  Preparing: UPDATE tb_product SET product_name=?, product_desc=?, img_addr=?, priority=?, last_edit_time=?, enable_status=?, product_category_id=? WHERE product_id = ? AND shop_id=? 
+2018-11-02 02:40:08.362[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.updateProduct -==> Parameters: 鱼头渔粉(String), 10块一碗(String), upload\images\item\shop\64\2018110202400779054.jpg(String), 99(Integer), 2018-11-02 02:40:07.097(Timestamp), 0(Integer), 2(Long), 5(Long), 64(Long)
+2018-11-02 02:40:08.363[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.updateProduct -<==    Updates: 1
+2018-11-02 04:03:08.289[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2018-11-02 04:03:08.319[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 3(Integer)
+2018-11-02 04:03:08.339[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -<==      Total: 3
+2018-11-02 04:03:08.347[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==>  Preparing: SELECT count(1) FROM tb_product 
+2018-11-02 04:03:08.347[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==> Parameters: 
+2018-11-02 04:03:08.348[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -<==      Total: 1
+2018-11-02 04:03:08.350[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%渔粉%' ORDER BY priority DESC LIMIT ?,?; 
+2018-11-02 04:03:08.350[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 4(Integer)
+2018-11-02 04:03:08.374[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -<==      Total: 3
+2018-11-02 04:03:08.374[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%渔粉%' 
+2018-11-02 04:03:08.375[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==> Parameters: 
+2018-11-02 04:03:08.375[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -<==      Total: 1
+2018-11-02 04:06:06.341[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2018-11-02 04:06:06.374[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 3(Integer)
+2018-11-02 04:06:06.392[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -<==      Total: 3
+2018-11-02 04:06:06.400[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==>  Preparing: SELECT count(1) FROM tb_product 
+2018-11-02 04:06:06.400[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==> Parameters: 
+2018-11-02 04:06:06.401[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -<==      Total: 1
+2018-11-02 04:06:06.403[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%渔粉%' ORDER BY priority DESC LIMIT ?,?; 
+2018-11-02 04:06:06.403[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 4(Integer)
+2018-11-02 04:06:06.405[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -<==      Total: 3
+2018-11-02 04:06:23.364[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2018-11-02 04:06:23.392[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 3(Integer)
+2018-11-02 04:06:23.411[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -<==      Total: 3
+2018-11-02 04:06:23.420[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==>  Preparing: SELECT count(1) FROM tb_product 
+2018-11-02 04:06:23.420[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==> Parameters: 
+2018-11-02 04:06:23.421[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -<==      Total: 1
+2018-11-02 04:06:23.423[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%渔粉%' ORDER BY priority DESC LIMIT ?,?; 
+2018-11-02 04:06:23.423[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 4(Integer)
+2018-11-02 04:06:23.425[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductList -<==      Total: 3
+2018-11-02 04:06:23.426[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%渔粉%' 
+2018-11-02 04:06:23.426[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -==> Parameters: 
+2018-11-02 04:06:23.427[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.queryProductCount -<==      Total: 1
+2018-11-02 05:55:19.456[main]DEBUG c.w.o2o.dao.ProductDao.updateProductCategoryToNull -==>  Preparing: UPDATE tb_product SET product_category_id = null WHERE product_category_id = ? 
+2018-11-02 05:55:19.487[main]DEBUG c.w.o2o.dao.ProductDao.updateProductCategoryToNull -==> Parameters: 4(Long)
+2018-11-02 05:55:19.601[main]DEBUG c.w.o2o.dao.ProductDao.updateProductCategoryToNull -<==    Updates: 1
+2018-11-02 05:55:19.633[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.deleteProduct -==>  Preparing: DELETE FROM tb_product WHERE product_id = ? AND shop_id=? 
+2018-11-02 05:55:19.634[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.deleteProduct -==> Parameters: 2(Long), 64(Long)
+2018-11-02 05:55:19.634[main]DEBUG cn.wyslkl.o2o.dao.ProductDao.deleteProduct -<==    Updates: 0
+2018-11-02 06:47:24.596[main]DEBUG c.wyslkl.o2o.dao.ShopCategoryDao.queryShopCategory -==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is null ORDER BY priority DESC 
+2018-11-02 06:47:24.627[main]DEBUG c.wyslkl.o2o.dao.ShopCategoryDao.queryShopCategory -==> Parameters: 
+2018-11-02 06:47:24.651[main]DEBUG c.wyslkl.o2o.dao.ShopCategoryDao.queryShopCategory -<==      Total: 1
+2018-11-02 13:34:33.784[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==>  Preparing: INSERT INTO tb_head_line(line_name,line_link,line_img,priority, enable_status, create_time,last_edit_time) VALUES (?,?,?,?, ?,?,?) 
+2018-11-02 13:34:33.844[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==> Parameters: 头条1(String), 头条1(String), test1(String), 1(Integer), 1(Integer), 2018-11-02 13:34:33.476(Timestamp), 2018-11-02 13:34:33.476(Timestamp)
+2018-11-02 13:34:33.902[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -<==    Updates: 1
+2018-11-02 13:35:24.930[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2018-11-02 13:35:24.992[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==> Parameters: 
+2018-11-02 13:35:25.012[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -<==      Total: 1
+2018-11-02 13:35:57.440[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.updateHeadLine -==>  Preparing: update tb_head_line SET line_name=?, last_edit_time=? where line_id=? 
+2018-11-02 13:35:57.473[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.updateHeadLine -==> Parameters: 未来头条(String), 2018-11-02 13:35:57.076(Timestamp), 1(Long)
+2018-11-02 13:35:57.528[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.updateHeadLine -<==    Updates: 1
+2018-11-02 13:37:35.707[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2018-11-02 13:37:35.769[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==> Parameters: 
+2018-11-02 13:37:35.789[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -<==      Total: 1
+2018-11-02 13:37:35.797[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.deleteHeadLine -==>  Preparing: DELETE FROM tb_head_line WHERE line_id = ? 
+2018-11-02 13:37:35.798[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.deleteHeadLine -==> Parameters: 1(Long)
+2018-11-02 13:37:35.873[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.deleteHeadLine -<==    Updates: 1
+2018-11-02 13:38:19.847[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==>  Preparing: INSERT INTO tb_head_line(line_name,line_link,line_img,priority, enable_status, create_time,last_edit_time) VALUES (?,?,?,?, ?,?,?) 
+2018-11-02 13:38:19.909[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==> Parameters: 头条1(String), 头条1(String), test1(String), 1(Integer), 1(Integer), 2018-11-02 13:38:19.524(Timestamp), 2018-11-02 13:38:19.524(Timestamp)
+2018-11-02 13:38:19.976[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -<==    Updates: 1
+2018-11-02 13:49:56.223[main]DEBUG c.wyslkl.o2o.dao.ShopCategoryDao.queryShopCategory -==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is null ORDER BY priority DESC 
+2018-11-02 13:49:56.285[main]DEBUG c.wyslkl.o2o.dao.ShopCategoryDao.queryShopCategory -==> Parameters: 
+2018-11-02 13:49:56.303[main]DEBUG c.wyslkl.o2o.dao.ShopCategoryDao.queryShopCategory -<==      Total: 1
+2018-11-02 13:52:23.025[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==>  Preparing: INSERT INTO tb_head_line(line_name,line_link,line_img,priority, enable_status, create_time,last_edit_time) VALUES (?,?,?,?, ?,?,?) 
+2018-11-02 13:52:23.089[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==> Parameters: 头条1(String), 头条1(String), test1(String), 1(Integer), 1(Integer), 2018-11-02 13:52:22.717(Timestamp), 2018-11-02 13:52:22.717(Timestamp)
+2018-11-02 13:52:23.161[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -<==    Updates: 1
+2018-11-02 14:03:27.344[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2018-11-02 14:03:27.377[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==> Parameters: 
+2018-11-02 14:03:27.396[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -<==      Total: 2
+2018-11-02 14:03:27.407[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==>  Preparing: INSERT INTO tb_head_line(line_name,line_link,line_img,priority, enable_status, create_time,last_edit_time) VALUES (?,?,?,?, ?,?,?) 
+2018-11-02 14:03:27.410[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -==> Parameters: 头条1(String), 头条1(String), test1(String), 1(Integer), 1(Integer), 2018-11-02 14:03:27.407(Timestamp), 2018-11-02 14:03:27.407(Timestamp)
+2018-11-02 14:03:27.512[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.insertHeadLine -<==    Updates: 1
+2018-11-02 14:04:07.908[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2018-11-02 14:04:07.967[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -==> Parameters: 
+2018-11-02 14:04:07.989[main]DEBUG cn.wyslkl.o2o.dao.HeadLineDao.queryHeadLine -<==      Total: 3
+2018-11-02 17:14:53.874[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category) WHERE parent_id=? AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
+2018-11-02 17:14:53.906[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==> Parameters: 4(Long), 0(Integer), 5(Integer)
+2018-11-02 17:25:31.695[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
+2018-11-02 17:25:31.726[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==> Parameters: 4(Long), 0(Integer), 5(Integer)
+2018-11-02 17:25:31.850[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -<==      Total: 0
+2018-11-02 17:25:31.861[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==>  Preparing: SELECT count(1) FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id 
+2018-11-02 17:25:31.861[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==> Parameters: 4(Long)
+2018-11-02 17:25:31.883[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -<==      Total: 1
+2018-11-02 17:29:44.551[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
+2018-11-02 17:29:44.582[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==> Parameters: 4(Long), 0(Integer), 10(Integer)
+2018-11-02 17:29:44.598[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -<==      Total: 0
+2018-11-02 17:29:44.607[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==>  Preparing: SELECT count(1) FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id 
+2018-11-02 17:29:44.608[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==> Parameters: 4(Long)
+2018-11-02 17:29:44.609[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -<==      Total: 1
+2018-11-02 17:31:35.645[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
+2018-11-02 17:31:35.675[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==> Parameters: 9(Long), 0(Integer), 10(Integer)
+2018-11-02 17:31:35.691[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -<==      Total: 0
+2018-11-02 17:31:35.699[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==>  Preparing: SELECT count(1) FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id 
+2018-11-02 17:31:35.700[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==> Parameters: 9(Long)
+2018-11-02 17:31:35.703[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -<==      Total: 1
+2018-11-02 17:41:08.739[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
+2018-11-02 17:41:08.769[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -==> Parameters: 4(Long), 0(Integer), 15(Integer)
+2018-11-02 17:41:08.788[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopList -<==      Total: 2
+2018-11-02 17:41:08.797[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==>  Preparing: SELECT count(1) FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id=?) AND s.area_id=a.area_id AND s.shop_category_id=sc.shop_category_id 
+2018-11-02 17:41:08.798[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -==> Parameters: 4(Long)
+2018-11-02 17:41:08.799[main]DEBUG cn.wyslkl.o2o.dao.ShopDao.queryShopCount -<==      Total: 1
